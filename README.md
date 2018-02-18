@@ -5,6 +5,8 @@
 
 之后会用Vue重构
 
+[demo](https://snakeninja110.github.io/sudoku/www/index.html)
+
 ## Build Setup
 
 ``` bash
