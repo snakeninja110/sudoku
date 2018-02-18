@@ -1,0 +1,22 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/gulp && ./node_modules/.bin/gulp watch",
+    "dev": "./node_modules/.bin/gulp"
+  },
+  "author": "Sun Hao",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.5.0",
+    "gulp-util": "^3.0.8",
+    "webpack-stream": "^4.0.1"
+  }
+}

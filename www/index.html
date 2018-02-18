@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- 标题 -->
+  <div class="title">
+    <h1>数独游戏</h1>
+  </div>
+  <!-- 九宫格 -->
+  <div class="container grid" id="container"></div>
+  <!-- 按钮组 -->
+  <div class="dashboard" id="dashboard">
+    <div class="buttons">
+      <button type="button" id="check">检查</button>
+      <button type="button" id="reset">重置</button>
+      <button type="button" id="clear">清理</button>
+      <button type="button" id="rebuild">重建</button>
+    </div>
+  </div>
+  <!-- 弹出面板 -->
+  <div class="grid popup-num hidden" id="popupNumbers">
+    <div class="row">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+    </div>
+    <div class="row">
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+    </div>
+    <div class="row">
+      <span>7</span>
+      <span>8</span>
+      <span>9</span>
+    </div>
+    <div class="row">
+      <span class="mark1"></span>
+      <span class="empty"></span>
+      <span class="mark2"></span>
+    </div>
+  </div>
+
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

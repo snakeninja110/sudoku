@@ -1,0 +1,154 @@
+@shadowBottom: 0 .2rem .3rem rgba(48, 48, 48, 192);
+@shadowTop: 0 -.1rem .2rem rgba(48, 48, 48, 192);
+
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #eeeeee;
+  font-family: "Consolas", "Microsoft YaHei";
+  user-select: none;
+  max-width: 450px;
+  >* {
+    max-width: 450px;
+  }
+}
+
+.title {
+  padding: 1rem 5%;
+  background: steelblue;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  box-shadow: @shadowBottom;
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  padding-left: 5%;
+  
+  .row {
+    >span {
+      display: inline-block;
+      width: 10%;
+      height: 24px;
+      line-height: 24px;
+      border-left: 1px solid #cccccc;
+      border-top: 1px solid #cccccc;
+      background: #ffffff;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+
+      &.empty {
+        color: #ffffff;
+      }
+      &.fixed {
+        background: #f0f0f0;
+      }
+      &.col_g_right {
+        border-right: 1px solid #cccccc;
+      }
+      &:first-child {
+        border-left: 2px solid #cccccc;
+      }
+      &:last-child {
+        border-right: 2px solid #cccccc;
+      }
+      &.mark1 {
+        background: lightblue;
+        &.empty {
+          color: lightblue;
+        }
+      }
+      &.mark2 {
+        background: lightgreen;
+        &.empty {
+          color: lightgreen;
+        }
+      }
+      &.error {
+        background: lightpink;
+        &.empty {
+          color: lightpink;
+        }
+      }
+    }
+    &.row_g_bottom{
+      >span{
+        border-bottom: 1px solid #cccccc;
+      }
+    }
+    &:first-child {
+      >span {
+        border-top: 2px solid #cccccc;
+      }
+    }
+    &:last-child {
+      >span {
+        border-bottom: 2px solid #cccccc;
+      }
+    }
+  }
+}
+
+@popupCellSize: 40px;
+
+.popup-num {
+  .container();
+  position: absolute;
+  padding-left: 0;
+  .row{
+    font-size: 0;
+    >span {
+      width: @popupCellSize;
+      height: @popupCellSize;
+      line-height: @popupCellSize;
+      font-size: 16px;
+    }
+  }
+  
+}
+
+.dashboard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  box-shadow: @shadowTop;
+  background: steelblue;
+  .buttons {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+
+    button{
+      flex: 1;
+      font-size: 1.3rem;
+      font-family: "Microsoft YaHei";
+      color: #ffffff;
+      border-width: 0;
+      border-right: 1px solid #cccccc;
+      background: steelblue;
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
