@@ -108,6 +108,8 @@ export default class Grid {
 
   bindPopup (popupNumbers) {
     this._$container.on('mousedown', 'span:not(.fixed)', e => {
+      e.stopPropagation();
+      $('#container span.active').removeClass('active');
       const $cell = $(e.target);
       popupNumbers.popup($cell);
     })

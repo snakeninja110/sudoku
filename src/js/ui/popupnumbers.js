@@ -2,7 +2,7 @@
 export default class PopupNumbers {
   constructor ($panel) {
     this._$panel = $panel.hide().removeClass('hidden');
-
+    this._panelWidth = $panel.width();
     this._$panel.on('mousedown', 'span', e => {
       const $cell = this._$targetCell;
       const $span = $(e.target);
@@ -29,13 +29,20 @@ export default class PopupNumbers {
         $cell.removeClass('empty').text($span.text());
       }
       this.hide();
+      $cell.removeClass('active');
     })
   }
 
   popup ($cell) {
     this._$targetCell = $cell;
-    const { left, top } = $cell.position();
-    const trueLeft = left > $(document.body).width() * 0.625 ? parseInt(left - 120) : left;
+    $cell.addClass('active');
+    const rect = $cell[0].getBoundingClientRect();
+    const deviation = parseFloat(rect.width / 2);
+
+    const left = Math.round((rect.left + deviation) * 100) / 100;
+    const top = Math.round((rect.top + deviation) * 100) / 100;
+
+    const trueLeft = window.innerWidth > Math.round((left + this._panelWidth) * 100) / 100 ? left : left - this._panelWidth;
     this._$panel.css({
       left: `${trueLeft}px`,
       top: `${top}px`

@@ -75,6 +75,9 @@ body > * {
 .container .row > span.error.empty {
   color: lightpink;
 }
+.container .row > span.active {
+  box-shadow: 0 0 5px #ff0000 inset;
+}
 .container .row.row_g_bottom > span {
   border-bottom: 1px solid #cccccc;
 }
@@ -133,6 +136,9 @@ body > * {
 }
 .popup-num .row > span.error.empty {
   color: lightpink;
+}
+.popup-num .row > span.active {
+  box-shadow: 0 0 5px #ff0000 inset;
 }
 .popup-num .row.row_g_bottom > span {
   border-bottom: 1px solid #cccccc;

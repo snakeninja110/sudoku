@@ -385,6 +385,8 @@ var Grid = function () {
     key: 'bindPopup',
     value: function bindPopup(popupNumbers) {
       this._$container.on('mousedown', 'span:not(.fixed)', function (e) {
+        e.stopPropagation();
+        $('#container span.active').removeClass('active');
         var $cell = $(e.target);
         popupNumbers.popup($cell);
       });
@@ -739,7 +741,7 @@ var PopupNumbers = function () {
     _classCallCheck(this, PopupNumbers);
 
     this._$panel = $panel.hide().removeClass('hidden');
-
+    this._panelWidth = $panel.width();
     this._$panel.on('mousedown', 'span', function (e) {
       var $cell = _this._$targetCell;
       var $span = $(e.target);
@@ -766,6 +768,7 @@ var PopupNumbers = function () {
         $cell.removeClass('empty').text($span.text());
       }
       _this.hide();
+      $cell.removeClass('active');
     });
   }
 
@@ -773,12 +776,14 @@ var PopupNumbers = function () {
     key: 'popup',
     value: function popup($cell) {
       this._$targetCell = $cell;
+      $cell.addClass('active');
+      var rect = $cell[0].getBoundingClientRect();
+      var deviation = parseFloat(rect.width / 2);
 
-      var _$cell$position = $cell.position(),
-          left = _$cell$position.left,
-          top = _$cell$position.top;
+      var left = Math.round((rect.left + deviation) * 100) / 100;
+      var top = Math.round((rect.top + deviation) * 100) / 100;
 
-      var trueLeft = left > $(document.body).width() * 0.625 ? parseInt(left - 120) : left;
+      var trueLeft = window.innerWidth > Math.round((left + this._panelWidth) * 100) / 100 ? left : left - this._panelWidth;
       this._$panel.css({
         left: trueLeft + 'px',
         top: top + 'px'
